@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+        .dv{
+            margin:5px;
+            height:100px;
+            width:100px;
+            border: 1px solid black;
+           
+            float:left;
+
+        }
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .black{
+            background-color: black;
+        }
+    </style>
+    <title>Coloring</title>
+</head>
+<body>
+    <div id ="app">
+            <div class = "dv" @click ="clr = !clr" :class = "{ddv}"> 
+
+                </div>
+                <div class ="dv" :class="colorChange">
+                    4
+                </div>
+                <br>
+                <input type="text" v-model="colorChange">
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                clr:false,
+                colorChange :"green"
+            },
+            computed:{
+                ddv:function(){
+                    return {
+                        red:this.clr,
+                        blue:!this.clr
+                    }
+                }
+            }
+            
+        })
+    
+    </script>
+</body>
+</html>

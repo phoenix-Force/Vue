@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book list</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-for="student in students">
+                {{ student | json }}
+                <input type="text" v-model = 'student.name'> 
+                <input type="text" v-model = 'student.age'>
+                <input type="text" v-model ="student.strm">
+        </div>
+        <button @click='add'>Add</button>
+
+    </div>
+    <div>
+        
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                students: [{
+                    name:'',
+                    age:0,
+                    strm:''
+                },
+                {
+                    name:'',
+                    age:0,
+                    strm:''
+                }
+            ],
+                
+
+            },
+            methods:{
+
+                add:function(){
+                    this.students.push({
+                    name:'',
+                    age:0,
+                    strm:''
+                })
+                }
+
+            }
+
+        })
+
+
+    </script>
+</body>
+</html>

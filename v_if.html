@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+            <button @click="show = !show">Switch</button>
+            <p v-if = "show"> Hello world!</p>
+            <p v-else>I am here</p>
+    </div>
+
+    <div id="app2">
+        <button>
+            Login
+        </button>
+        <button>
+            logout
+        </button>
+
+    </div>
+    <div id="app3">
+
+        <ul v-for="x in hero">
+            <li v-for="(value,key) in x">{{key}}:{{value}}</li>
+        </ul>
+
+    </div>
+
+
+
+
+
+    <script>
+    new Vue({
+        el:'#app3',
+        data:{
+            show:true,
+            hero:[
+                {name:'Ironman',age:57},
+                {name:'doctor Stranger',age:43},
+                {name:'wanda',age:32}
+            ]
+        }
+    })
+    
+    </script>
+</body>
+</html>
