@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app" style = "height:500px;width:500px;background-color: azure;" v-on:mousemove='mve'>
+
+        <div v-on:mousemove.stop =''style = "height:50px;width:50px;background-color: black;" >
+        
+
+        </div>
+        <p>
+            X:{{x}}
+        </p>
+        <p>
+            Y:{{y}}
+        </p>
+    </div>
+    <div id="app2">
+        <button v-on:click='incrse'>increase</button>
+        <button v-on:click='drcse' >decrease</button>
+        <p>{{counter}}</p>
+        <p>{{result}}|{{cmtp}}</p>
+        <input v-model='firstname'type="text" >
+        <input v-model='lastname' type="text">
+        <p>{{fullname}}</p>
+    </div>
+
+
+
+
+    <script>
+
+        new Vue({
+            el:"#app2",
+            data:{
+                counter:0,
+                result: '',
+                firstname:'manja',
+                lastname:'Hoque'
+            },
+            computed:{
+                fullname:function(){
+                    return(this.firstname+' '+this.lastname);
+                },
+                
+                cmtp:function(){
+                    console.log('Computed')
+                    return(this.counter>5?"counter gretter then ":"counter less then 5 ");
+                }
+
+            },
+            methods:{
+                incrse:function(){
+                    console.log('methods')
+                    this.counter++;
+                    this.result = this.counter>5?"counter gretter then ":"counter less then 5 "
+                },
+                drcse:function(){
+                    if(this.counter>0)
+                        this.counter--;
+                }
+            }
+        })
+
+
+
+
+        new Vue({
+            el:'#app',
+            data:{
+                x:0,
+                y:0
+            },
+            methods:{
+                mve:function(event){
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                }
+            }
+        })
+
+
+
+    </script>
+</body>
+</html>

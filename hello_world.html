@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id = "app">
+        <input type="text" v-on:input = "func">
+        <p>{{title}}</p>
+        <h1>{{d}}</h1>
+        <h2>{{func()}}</h2>
+        <a v-bind:href = "link">vue js</a>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            title:"Hello world!",
+            d :"!paradox",
+            link:'https://vuejs.org/v2/guide/installation.html'
+        },
+        methods:{
+             func:function(){
+                 //this.d = event.target.value;
+                return this.d;
+            }
+        }
+
+    });
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>second</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id = "app">
+        height:<input type="text" placeholder="Enter the Height" v-on:input='hgt'>
+        width:<input type="text" placeholder="Enter the width" v-on:input='wdt'>
+        source: <input type="file" accept="image/*" placeholder="Enter the souce"v-on:input='src'>
+        <img v-bind:src="source" alt="" v-bind:height="height" v-bind:width="width">
+
+    </div>
+    
+</body>
+<script>
+new Vue({
+    el:'#app',
+    data:{
+        source:`img2.jpg`,
+        height:`600px`,
+        width:`800px`
+    },
+    methods:{
+        hgt:function(event){
+            this.height = event.target.value;
+        },
+        wdt:function(event){
+            this.width = event.target.value;
+        },
+        src:function(event){
+            input = event.target
+            var path;
+            var that = this
+            reader = new FileReader();
+            reader.onload = function(e){
+                path = e.target.result;
+                console.log(path);
+                that.source = path;
+            }
+            reader.readAsDataURL(input.files[0]);
+            
+            
+            
+        }
+    }
+})
+
+
+
+</script>
+
+</html>
